@@ -55,8 +55,10 @@ while 1:
     HOSTNEXT = cur[db.getdata("processname")]["next"]["ip"]  # The remote host
     PORTNEXT = 8888  # The same port as used by the server
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect((HOSTNEXT, PORTNEXT))
-    s.sendall(findata)
-    s.close()
-
+    try:
+        s.connect((HOSTNEXT, PORTNEXT))
+        s.sendall(findata)
+        s.close()
+    except:
+        pass
 sock.close()

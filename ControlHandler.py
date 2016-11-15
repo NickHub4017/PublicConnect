@@ -28,6 +28,7 @@ class ControlHandler:
         controlmessageprogramproperties = controlmsgjson["programproperties"]
         controlmessagedeviceproperties = controlmsgjson["deviceproperties"]
         resdata=self.submitdatatodatabase(controlmessagetimestamp,controlmessagefromip,controlmessagesysid,controlmessagesysname,controlmessageprogramproperties,controlmessagedeviceproperties,inputdeamonprop,outputdeamonprop,cntrldeamonprop)
+        print resdata
         return resdata
 
 

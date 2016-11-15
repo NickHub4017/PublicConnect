@@ -63,12 +63,13 @@ def getFromControl():
 
 
 while(1):
-    time.sleep(10)
+
     settings=json.dumps(getFromControl())
     handler=ControlHandler()
     handler.insertcontrolmessage(settings)
-    #processCleanUp("inputDeamon.py")
-    #processCleanUp("outputdeamon.py")
+    time.sleep(5)
+    processCleanUp("inputDeamon.py")
+    processCleanUp("outputdeamon.py")
     procinput.kill()
     procoutput.kill()
     procinput = subprocess.Popen(['python', dir_path + '/inputdeamon/inputDeamon.py'])
