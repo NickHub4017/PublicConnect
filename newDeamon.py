@@ -41,9 +41,8 @@ while 1:
     conn, addr = sock.accept()
     print 'Connected with ' + addr[0] + ':' + str(addr[1])
     findata=""
-
+    #conn.send(db.getnodedata("processname"))  # Sending ID
     while True:
-        conn.send(db.getnodedata("processname")) #Sending ID
         data = conn.recv(1024)
         if(not data):
             break
