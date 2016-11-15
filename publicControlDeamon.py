@@ -71,8 +71,8 @@ while(1):
     #processCleanUp("outputdeamon.py")
     procinput.kill()
     procoutput.kill()
-    procinput = subprocess.Popen(['python', '/home/nrv/PycharmProjects/publiclink/inputdeamon/inputDeamon.py'])
-    procoutput = subprocess.Popen(['python', '/home/nrv/PycharmProjects/publiclink/outputdeamon/outputdeamon.py'])
+    procinput = subprocess.Popen(['python', dir_path + '/inputdeamon/inputDeamon.py'])
+    procoutput = subprocess.Popen(['python', dir_path + '/outputdeamon/outputdeamon.py'])
 
 
 
