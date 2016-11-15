@@ -53,12 +53,13 @@ while 1:
     conn.close()
     cur=json.loads(findata)
     HOSTNEXT = cur[db.getdata("processname")]["next"]["ip"]  # The remote host
-    PORTNEXT = 8888  # The same port as used by the server
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    try:
-        s.connect((HOSTNEXT, PORTNEXT))
-        s.sendall(findata)
-        s.close()
-    except:
-        pass
+    if(HOSTNEXT!="0.0.0.0"):
+        PORTNEXT = 8888  # The same port as used by the server
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        try:
+            s.connect((HOSTNEXT, PORTNEXT))
+            s.sendall(findata)
+            s.close()
+        except:
+            pass
 sock.close()
