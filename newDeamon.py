@@ -53,7 +53,7 @@ while 1:
     conn.close()
     cur=json.loads(findata)
     HOSTNEXT = cur[db.getdata("processname")]["next"]["ip"]  # The remote host
-    if(HOSTNEXT!="0.0.0.0"):
+    if(not "0.0.0.0" in HOSTNEXT):
         PORTNEXT = 8888  # The same port as used by the server
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:
@@ -62,4 +62,6 @@ while 1:
             s.close()
         except:
             pass
+    else:
+        print "I am the End"
 sock.close()
