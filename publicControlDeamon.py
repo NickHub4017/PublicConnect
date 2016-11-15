@@ -49,9 +49,9 @@ import os
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 proccontrol = subprocess.Popen(['python', dir_path+'/newDeamon.py'])
-procinput = subprocess.Popen(['python', dir_path+'/inputdeamon/inputDeamon.py'])
-procoutput = subprocess.Popen(['python', dir_path+'/outputdeamon/outputdeamon.py'])
-process = subprocess.Popen(['python', os.environ['HOME']+"/a.py"])
+#procinput = subprocess.Popen(['python', dir_path+'/inputdeamon/inputDeamon.py'])
+#procoutput = subprocess.Popen(['python', dir_path+'/outputdeamon/outputdeamon.py'])
+#process = subprocess.Popen(['python', os.environ['HOME']+"/a.py"])
 
 def getFromControl():
     fifo = open(path, "r")
@@ -70,12 +70,12 @@ while(1):
     handler=ControlHandler()
     handler.insertcontrolmessage(settings)
     time.sleep(5)
-    processCleanUp("inputDeamon.py")
-    processCleanUp("outputdeamon.py")
-    procinput.kill()
-    procoutput.kill()
-    procinput = subprocess.Popen(['python', dir_path + '/inputdeamon/inputDeamon.py'])
-    procoutput = subprocess.Popen(['python', dir_path + '/outputdeamon/outputdeamon.py'])
+    # processCleanUp("inputDeamon.py")
+    # processCleanUp("outputdeamon.py")
+    # procinput.kill()
+    # procoutput.kill()
+    # procinput = subprocess.Popen(['python', dir_path + '/inputdeamon/inputDeamon.py'])
+    # procoutput = subprocess.Popen(['python', dir_path + '/outputdeamon/outputdeamon.py'])
 
 
 
