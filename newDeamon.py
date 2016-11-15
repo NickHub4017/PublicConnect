@@ -52,7 +52,7 @@ while 1:
     writeToPipe(findata)
     conn.close()
     cur=json.loads(findata)
-    HOSTNEXT = cur[db.getnodedata("processname")]["next"]["ip"]  # The remote host
+    HOSTNEXT = cur[db.getdata("processname")]["next"]["ip"]  # The remote host
     PORTNEXT = 8888  # The same port as used by the server
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((HOSTNEXT, PORTNEXT))
