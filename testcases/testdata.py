@@ -73,23 +73,27 @@ import json
 
 abc={"a": {"sysname": "control1", "cntrldeamon": {"ip": "127.0.0.1", "type": "client", "port": 8080, "protocol": "tcp", "name": "cntrldeamon"}, "timestamp": "2016-10-07", "fromip": "127.0.0.1", "oupdeamon": {"ip": "192.168.1.4", "type": "client", "port": 8100, "protocol": "tcp", "name": "oudeamon"}, "sysid": 1500, "inpdeamon": {"ip": "127.0.0.1", "type": "server", "port": 8050, "protocol": "tcp", "name": "inpdeamon"}, "programproperties": "-p 100 -q 1000", "next": {"ip": "192.168.1.4", "type": "client", "port": 8888, "protocol": "tcp", "name": "cntrldeamon"}, "deviceproperties": "-p 1500 -q 150"}, "c": {"sysname": "control1", "cntrldeamon": {"ip": "127.0.0.1", "type": "client", "port": 8080, "protocol": "tcp", "name": "cntrldeamon"}, "timestamp": "2016-10-07", "fromip": "127.0.0.1", "oupdeamon": {"ip": "192.168.1.6", "type": "client", "port": 8100, "protocol": "tcp", "name": "oudeamon"}, "sysid": 1500, "inpdeamon": {"ip": "192.168.1.1", "type": "server", "port": 8100, "protocol": "tcp", "name": "inpdeamon"}, "programproperties": "-p 100 -q 1000", "next": {"ip": "192.168.1.6", "type": "client", "port": 8888, "protocol": "tcp", "name": "cntrldeamon"}, "deviceproperties": "-p 1500 -q 150"}, "b": {"sysname": "control1", "cntrldeamon": {"ip": "127.0.0.1", "type": "client", "port": 8080, "protocol": "tcp", "name": "cntrldeamon"}, "timestamp": "2016-10-07", "fromip": "127.0.0.1", "oupdeamon": {"ip": "192.168.1.6", "type": "client", "port": 8100, "protocol": "tcp", "name": "oudeamon"}, "sysid": 1500, "inpdeamon": {"ip": "192.168.1.1", "type": "server", "port": 8100, "protocol": "tcp", "name": "inpdeamon"}, "programproperties": "-p 100 -q 1000", "next": {"ip": "192.168.1.6", "type": "client", "port": 8888, "protocol": "tcp", "name": "cntrldeamon"}, "deviceproperties": "-p 1500 -q 150"}}
 acb={"a": {"sysname": "control1", "cntrldeamon": {"ip": "127.0.0.1", "type": "client", "port": 8080, "protocol": "tcp", "name": "cntrldeamon"}, "timestamp": "2016-10-07", "fromip": "127.0.0.1", "oupdeamon": {"ip": "192.168.1.6", "type": "client", "port": 8100, "protocol": "tcp", "name": "oudeamon"}, "sysid": 1500, "inpdeamon": {"ip": "127.0.0.1", "type": "server", "port": 8050, "protocol": "tcp", "name": "inpdeamon"}, "programproperties": "-p 100 -q 1000", "next": {"ip": "192.168.1.6", "type": "client", "port": 8888, "protocol": "tcp", "name": "cntrldeamon"}, "deviceproperties": "-p 1500 -q 150"}, "c": {"sysname": "control1", "cntrldeamon": {"ip": "127.0.0.1", "type": "client", "port": 8080, "protocol": "tcp", "name": "cntrldeamon"}, "timestamp": "2016-10-07", "fromip": "127.0.0.1", "oupdeamon": {"ip": "192.168.1.3", "type": "client", "port": 8100, "protocol": "tcp", "name": "oudeamon"}, "sysid": 1500, "inpdeamon": {"ip": "192.168.1.1", "type": "server", "port": 8100, "protocol": "tcp", "name": "inpdeamon"}, "programproperties": "-p 100 -q 1000", "next": {"ip": "192.168.1.3", "type": "client", "port": 8888, "protocol": "tcp", "name": "cntrldeamon"}, "deviceproperties": "-p 1500 -q 150"}, "b": {"sysname": "control1", "cntrldeamon": {"ip": "127.0.0.1", "type": "client", "port": 8080, "protocol": "tcp", "name": "cntrldeamon"}, "timestamp": "2016-10-07", "fromip": "127.0.0.1", "oupdeamon": {"ip": "192.168.1.3", "type": "client", "port": 8100, "protocol": "tcp", "name": "oudeamon"}, "sysid": 1500, "inpdeamon": {"ip": "192.168.1.1", "type": "server", "port": 8100, "protocol": "tcp", "name": "inpdeamon"}, "programproperties": "-p 100 -q 1000", "next": {"ip": "192.168.1.3", "type": "client", "port": 8888, "protocol": "tcp", "name": "cntrldeamon"}, "deviceproperties": "-p 1500 -q 150"}}
-
+abcip="192.168.1.4"
+acbip="192.168.1.6"
 opt=raw_input("abc or acb ?  :- ")
 
 import socket
 import sys
 
 fin=""
+finip=""
 if(opt=="abc"):
     fin=abc
+    finip=abcip
 elif(opt=="acb"):
     fin=acb
+    finip=acbip
 
 # Create a TCP/IP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Connect the socket to the port where the server is listening
-server_address = ('192.168.1.3', 8888)
+server_address = (finip, 8888)
 print >>sys.stderr, 'connecting to %s port %s' % server_address
 sock.connect(server_address)
 try:

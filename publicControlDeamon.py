@@ -57,6 +57,7 @@ def getFromControl():
     jobj=json.loads(msg)
     db=initdbclass()
     id=db.getnodedata("processname")
+    print id
     mysettings=jobj[id]
     return mysettings
 
