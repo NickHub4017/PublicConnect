@@ -47,7 +47,7 @@ class inputDeamonServer:
                     self.handler = inputHandler()
                     while (1):
                         try:
-                            print "wait for recv"
+                            print "wait for recv "
                             inputmessage = str(conn.recv(self.buffersize))  ##Check is it must be conn?
                             if (not inputmessage):
                                 break
@@ -58,6 +58,7 @@ class inputDeamonServer:
                             #self.socket.close()
                             return
                             break
+                    break
                 else:
                     print "Sorry input deamon socket has an error"
 
