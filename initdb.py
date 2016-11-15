@@ -30,7 +30,8 @@ class initdbclass():
 
 
         except Exception as e:
-            print("Insert error "+e.message.capitalize())
+            #print("Insert error "+e.message.capitalize())
+            pass
 
         self.closedb(conn)
 

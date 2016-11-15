@@ -16,15 +16,17 @@ def processCleanUp(procname):
         procdata=line.split(" ")
         for c in range(0,procdata.count('')):
             procdata.remove('')
-        print procdata
+        #print procdata
         try:
             if(procname in procdata[11]):
                 try:
                     pslist.append(int(procdata[1]))
                 except Exception as e:
-                    print "Error occured in init process cleanup:- "+e.message
+                    pass
+                    #print "Error occured in init process cleanup:- "+e.message
         except Exception as e:
-            print "Error occured in init process cleanup Main try :- "+e.message
+            pass
+            #print "Error occured in init process cleanup Main try :- "+e.message
     #print pslist
     for p in pslist:
         try:
