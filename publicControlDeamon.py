@@ -43,10 +43,12 @@ try:
     os.mkfifo(path)
 except Exception as e:
     pass
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
-proccontrol = subprocess.Popen(['python', '/home/nrv/PycharmProjects/publiclink/newDeamon.py'])
-procinput = subprocess.Popen(['python', '/home/nrv/PycharmProjects/publiclink/inputdeamon/inputDeamon.py'])
-procoutput = subprocess.Popen(['python', '/home/nrv/PycharmProjects/publiclink/outputdeamon/outputdeamon.py'])
+proccontrol = subprocess.Popen(['python', dir_path+'/newDeamon.py'])
+procinput = subprocess.Popen(['python', dir_path+'/inputdeamon/inputDeamon.py'])
+procoutput = subprocess.Popen(['python', dir_path+'/outputdeamon/outputdeamon.py'])
 process = subprocess.Popen(['python', os.environ['HOME']+"/a.py"])
 
 def getFromControl():
